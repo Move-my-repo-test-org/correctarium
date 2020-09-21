@@ -1,0 +1,37 @@
+.page-container {
+    display: flex;
+    font-size: 20px;
+}
+
+.description-form-container {
+    margin-left: 10vw;
+    width: 60vw;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+textarea {
+    height: 180px;
+}
+
+::-webkit-input-placeholder {font-size: 20px;}
+::-moz-placeholder          {font-size: 20px;}/* Firefox 19+ */
+:-moz-placeholder           {font-size: 20px;}/* Firefox 18- */
+:-ms-input-placeholder      {font-size: 20px;}
+textarea::-webkit-input-placeholder {font-size: 20px;}
+textarea::-moz-placeholder {font-size: 20px;}
+textarea:-moz-placeholder {font-size: 20px;}
+textarea:-ms-input-placeholder {font-size: 20px;}
+
+
+.sum-btn-block {
+    width: 20vw;
+}
