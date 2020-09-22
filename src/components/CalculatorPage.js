@@ -135,19 +135,19 @@ class CalculatorPage extends React.Component {
       const deadlineDate = new Date(date).toLocaleDateString();
       const deadlineHour = hours%1 ? 10 + Math.floor(hours) + ':30' : 10 + hours + ':00';
       return `Термін виконання: ${deadlineDate} o ${deadlineHour}`;
-    } else if (new Date(date).getDay() == 0 && hours <= 9) {
+    } else if (new Date(date).getDay() === 0 && hours <= 9) {
       const deadlineDate = new Date(date + oneDayMilliseconds).toLocaleDateString();
       const deadlineHour = hours%1 ? 10 + Math.floor(hours) + ':30' : 10 + hours + ':00';
       return `Термін виконання: ${deadlineDate} o ${deadlineHour}`;
-    } else if (new Date(date).getDay() == 6 && hours <= 9) {
+    } else if (new Date(date).getDay() === 6 && hours <= 9) {
       const deadlineDate = new Date(date + 2 * oneDayMilliseconds).toLocaleDateString();
       const deadlineHour = hours%1 ? 10 + Math.floor(hours) + ':30' : 10 + hours + ':00';
       return `Термін виконання: ${deadlineDate} o ${deadlineHour}`;
     } else if (new Date(date).getDay() !== 5 && new Date(date).getDay() !== 6) {
       return this.determineDeadline(hours - 9, date + oneDayMilliseconds);
-    } else if (new Date(date).getDay() == 5) {
+    } else if (new Date(date).getDay() === 5) {
       return this.determineDeadline(hours - 9, date + 3 * oneDayMilliseconds);
-    } else if (new Date(date).getDay() == 6) {
+    } else if (new Date(date).getDay() === 6) {
       return this.determineDeadline(hours - 9, date + 2 * oneDayMilliseconds);
     }
   }
@@ -167,7 +167,7 @@ class CalculatorPage extends React.Component {
           <input type="text" name="name" value={this.state.name} placeholder="Ваше ім'я" onChange={this.onChangeName} />
           <textarea className="textarea" type="text" name="text" value={this.state.text} placeholder="Уведіть текст" onChange={this.onChangeText} />
           <p className="letters-count">{this.state.lettersCount ? this.state.lettersCount : ""}</p>
-          <p>МОВА</p>
+          <p className="language-word">МОВА</p>
           <label>
             <input type="radio" name="language" value="ukr" onChange={this.onChooseLanguage} required />
             Українська
@@ -180,13 +180,13 @@ class CalculatorPage extends React.Component {
             <input type="radio" name="language" value="eng" onChange={this.onChooseLanguage} />
             Англійська
           </label>
-          <input type="text" name="comment" value={this.state.comment} placeholder="Стислий коментар або покликання" onChange={this.onChangeComment} /> 
+          <input type="text" className="comment-input" name="comment" value={this.state.comment} placeholder="Стислий коментар або покликання" onChange={this.onChangeComment} /> 
         </form>
       </div>
       <div className="sum-btn-block">
         <p className="current-price">{this.state.price} грн</p>
         <p className="deadline">{this.state.deadline}</p>
-        <button type="submit" form="text-form" >ЗАМОВИТИ</button>
+        <button className="submit-btn" type="submit" form="text-form" >ЗАМОВИТИ</button>
       </div>
     </div>
     )
