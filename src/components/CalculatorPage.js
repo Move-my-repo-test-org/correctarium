@@ -23,10 +23,12 @@ class CalculatorPage extends React.Component {
       email: '',
       name: '',
       text: '',
+      lettersCount: '',
       language: '',
       comment: '',
       price: "0,00",
     })
+    event.target.reset();
     event.preventDefault();
   }
 
@@ -73,7 +75,7 @@ class CalculatorPage extends React.Component {
           <p className="letters-count">{this.state.lettersCount ? this.state.lettersCount : ""}</p>
           <p>МОВА</p>
           <label>
-            <input type="radio" name="language" value="ukr"  onChange={this.onChooseLanguage} />
+            <input type="radio" name="language" value="ukr" onChange={this.onChooseLanguage} required />
             Українська
           </label>
           <label>
